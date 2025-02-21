@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyDamage : MonoBehaviour
+public class ZombieDamage : MonoBehaviour
 {
     public float damage = 10f; // Iloœæ zadawanych obra¿eñ
     public float attackCooldown = 1.5f; // Czas miêdzy atakami
@@ -11,7 +11,11 @@ public class EnemyDamage : MonoBehaviour
         if (other.tag == "Player")
         {
             PlayerStats playerHealth = GameObject.Find("Player").GetComponent<PlayerStats>();
-            playerHealth.TakeDamage(damage);
+            if (Time.time - lastAttackTime >= attackCooldown)
+            {
+                playerHealth.TakeDamage(damage);
+                lastAttackTime = Time.time;
+            }
         }
     }
 }

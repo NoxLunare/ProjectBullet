@@ -3,16 +3,30 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+    public GameObject panelMovement;
+
+    private void Awake()
+    {
+        panelMovement.SetActive(false);
+    }
     // Metoda do zmiany sceny
     public void PlayGame()
     {
-        SceneManager.LoadScene("Scenes/MainScene"); // Zmieñ "GameScene" na nazwê swojej sceny z gr¹
+        SceneManager.LoadScene("Scenes/MainScene");
     }
 
-    // Metoda do wy³¹czenia aplikacji
     public void ExitGame()
     {
         Application.Quit();
-        Debug.Log("Gra zosta³a zamkniêta."); // Informacja w konsoli (dzia³a tylko w edytorze)
+        Debug.Log("Gra zosta³a zamkniêta."); 
+    }
+
+    public void OpenMovement()
+    {
+        panelMovement.SetActive(true);
+    }
+    public void CloseMovement()
+    {
+        panelMovement.SetActive(false);
     }
 }

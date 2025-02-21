@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        maxEnemies.maxEnemies = 100;
+        maxEnemies.maxEnemies = 9999;
         panelFinalny.SetActive(false);
         panelScore.SetActive(true);
         sliderHealth.SetActive(true);
